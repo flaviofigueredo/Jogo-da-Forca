@@ -8,15 +8,36 @@ async function iniciarJogo(){
     const palavras = ["BACKEND", "NODEJS", "JAVASCRIPT", "EXPRESS", "SERVIDOR", "TERMINAL"];
 
     const indiceAleatorio = Math.floor(Math.random() * palavras.length);
-    const palavraSecreta = palavras[indiceAleatorio];
+    const palavraSecreta = palavras[indiceAleatorio];   
 
     let letrasDescobertas = Array(palavraSecreta.length).fill("_");
     let jogoRodando = true;
 
     let vidas = 6;
+    const arteForca = [
+        " +---+\n | |\n O |\n /|\\ |\n / \\ |\n ", // 0 vidas
+
+        " +---+\n | |\n O |\n /|\\ |\n /  |\n ", // 1 vidas
+
+        " +---+\n | |\n O |\n /|\\ |\n   |\n ", // 2 vidas
+        
+        " +---+\n | |\n O |\n /| |\n   |\n ", // 3 vidas
+
+        " +---+\n | |\n O |\n | |\n   |\n ", // 4 vidas
+
+        " +---+\n | |\n O |\n  |\n   |\n ", // 5 vidas
+
+        " +---+\n | |\n  |\n  |\n   |\n ", // 6 vidas
+
+
+
+    ];
 
     console.log("=== Bem-vindo ao Jogo da Forca ===");
+    
     while (jogoRodando) {
+        console.log(`Vidas restantes: <3 ${vidas}`);
+        console.log(arteForca[vidas]);
         console.log(`\nPalavra atual: ${letrasDescobertas.join(" ")}`);
         
         const chute = (await rl.question("Digite uma letra: ")).toUpperCase();
@@ -30,7 +51,7 @@ async function iniciarJogo(){
         }
 
         if (!acertou){
-            console.log("[X] Letra incorreta!");
+            console.log("[X] Letra incorreta!");    
             vidas--;
         }
 
