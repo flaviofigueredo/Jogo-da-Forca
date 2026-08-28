@@ -14,8 +14,11 @@ async function iniciarJogo(){
     let jogoRodando = true;
 
     let vidas = 6;
-
+    
+    const dica = "Desenvolvimento de software";
     console.log("=== Bem-vindo ao Jogo da Forca ===");
+    console.log(`\nVidas restantes: ${vidas}`);
+   
     while (jogoRodando) {
         console.log(`\nPalavra atual: ${letrasDescobertas.join(" ")}`);
         
@@ -35,7 +38,10 @@ async function iniciarJogo(){
         }
 
         if (!letrasDescobertas.includes("_")){
+            let pontuacao = (vidas * 10) + 50;
             console.log(`\n[VITORIA] Parabéns! Você descobriu a palavra: ${palavraSecreta}`);
+             console.log(` \n[PONTUAÇÃO] Sua pontuação final foi: 
+                ${pontuacaoFinal} pontos`);
             jogoRodando = false;
         }
 
