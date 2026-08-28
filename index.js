@@ -5,7 +5,14 @@ const { stdin: input, stdout: output } = require('process');
 const rl = readline.createInterface({ input, output });
 
 async function iniciarJogo(){
-    const palavras = ["BACKEND", "NODEJS", "JAVASCRIPT", "EXPRESS", "SERVIDOR", "TERMINAL"];
+    const palavras = [
+        { palavra: "BACKEND", dica: "A lógica que roda nos bastidores do servidor" },
+        { palavra: "NODEJS", dica: "Ambiente de execução Javascript" },
+        { palavra: "JAVASCRIPT", dica: "Linguagem de programnação da WEB"},
+        { palavra: "EXPRESS", dica: "Framework minimalista para criar APIs" },
+        { palavra: "SERVIDOR", dica: "Computador que fornece serviços para outros computadores" },
+        { palavra: "TERMINAL", dica: "Interface de Linha de Comando" }
+    ];
 
     const indiceAleatorio = Math.floor(Math.random() * palavras.length);
     const palavraSecreta = palavras[indiceAleatorio];   
