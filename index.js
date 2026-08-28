@@ -63,7 +63,10 @@ async function iniciarJogo(){
         }
 
         if (!letrasDescobertas.includes("_")){
+            let pontuacao = (vidas * 10) + 50;
             console.log(`\n[VITORIA] Parabéns! Você descobriu a palavra: ${palavraSecreta}`);
+             console.log(` \n[PONTUAÇÃO] Sua pontuação final foi: 
+                ${pontuacaoFinal} pontos`);
             jogoRodando = false;
         }
 
